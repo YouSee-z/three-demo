@@ -18,4 +18,9 @@ export const routes = [
         path: '/table',
         component: './Table',
     },
+    {
+        name: '3D饼图',
+        path: '/piechart',
+        component: './Chart',
+    },
 ]

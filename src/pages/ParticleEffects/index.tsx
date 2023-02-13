@@ -1,6 +1,13 @@
 import { useRef, useEffect } from 'react';
 import styles from './index.less';
-import { WebGLRenderer, Scene, Color, PerspectiveCamera } from 'three';
+import {
+  WebGLRenderer,
+  Scene,
+  Color,
+  PerspectiveCamera,
+  EquirectangularReflectionMapping,
+} from 'three';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 
 const ParticleEffects = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -12,7 +19,7 @@ const ParticleEffects = () => {
     const canvas = canvasRef.current;
 
     const renderer = new WebGLRenderer({ canvas, antialias: true });
-    const scene = new Scene();
+    const scene = new Scene(); //场景
     scene.background = new Color(0x666666);
     const camera = new PerspectiveCamera(
       75,
@@ -20,6 +27,22 @@ const ParticleEffects = () => {
       0.1,
       1000,
     );
+    camera.position.set(0, 0, 2);
+    // 更新摄像头
+    camera.aspect = canvas.width / canvas.height;
+    //   更新摄像机的投影矩阵
+    camera.updateProjectionMatrix();
+    //
+    scene.add(camera);
+
+    // 创建纹理加载器对象
+    const rgbeLoader = new RGBELoader();
+
+    rgbeLoader.loadAsync('./assets/2k.hdr').then((texture) => {
+      texture.mapping = EquirectangularReflectionMapping;
+      scene.background = texture;
+      scene.environment = texture;
+    });
 
     const handleResize = () => {
       const width = canvas.clientWidth;

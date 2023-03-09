@@ -3,7 +3,7 @@ import { Color, Group, HemisphereLight, MathUtils, PerspectiveCamera, PointLight
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import SectorMesh from "./SectorMesh";
 
-import { AngleAndRatio, PieData, Pie3DProps } from "./index.d"
+import { AngleAndRatio,  Pie3DProps } from "./index.d"
 import styles from "./index.less"
 
 const getAngleAndRatio = (items: { value: number }[]) => {

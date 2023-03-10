@@ -4,10 +4,11 @@ export const routes = [
     redirect: '/home',
   },
   {
-    name: '首页',
+    name: 'vr',
     path: '/home',
     component: './Home',
   },
+  
   {
     name: '3D饼图',
     path: '/piechart',

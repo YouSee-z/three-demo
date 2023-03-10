@@ -5,12 +5,13 @@ import {
   Scene,
   Color,
   PerspectiveCamera,
-  EquirectangularReflectionMapping,
+  // EquirectangularReflectionMapping,
+  // Clock,
 } from 'three';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+// import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 // const clock = new Clock();
 
-const ParticleEffects = () => {
+const Smoke = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -36,15 +37,6 @@ const ParticleEffects = () => {
     //
     scene.add(camera);
 
-    // 创建纹理加载器对象
-    const rgbeLoader = new RGBELoader();
-
-    rgbeLoader.loadAsync('./assets/2k.hdr').then((texture) => {
-      texture.mapping = EquirectangularReflectionMapping;
-      scene.background = texture;
-      scene.environment = texture;
-    });
-
     const handleResize = () => {
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
@@ -68,4 +60,4 @@ const ParticleEffects = () => {
   return <canvas ref={canvasRef} className={styles.canvas} />;
 };
 
-export default ParticleEffects;
+export default Smoke;

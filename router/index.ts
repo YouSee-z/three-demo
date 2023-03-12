@@ -19,4 +19,9 @@ export const routes = [
     path: '/ParticleEffects',
     component: './ParticleEffects',
   },
+  {
+    name: '3D地球',
+    path: '/Earth',
+    component: './Earth',
+  },
 ];

@@ -64,6 +64,7 @@ const Pie3D: React.FC<Pie3DProps> = ({ data, radius, height }) => {
         const renderer = new WebGLRenderer({ canvas, antialias: true })
         const scene = new Scene()
         scene.background = new Color(0x666666)
+        console.log(canvas.width,canvas.height)
         const camera = new PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000)
         camera.position.set(0, 1, 2)
 

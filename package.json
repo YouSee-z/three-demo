@@ -18,7 +18,7 @@
     "cannon-es": "^0.20.0",
     "dat.gui": "^0.7.9",
     "gsap": "^3.11.4",
-    "three": "^0.149.0"
+    "three": "^0.133.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

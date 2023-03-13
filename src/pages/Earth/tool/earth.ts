@@ -1,7 +1,7 @@
 // 引入three.js
 import * as THREE from 'three';
 import { EarthRadius } from './static';
-// import {countryLine} from './line.js'
+import {countryLine} from './countryLine'
 import {sprite} from './sprite';
 import earthImg from '../../../assets/Earth/earth.png';
 
@@ -30,6 +30,6 @@ const earth = new THREE.Group(); //地球组对象
 earth.add(sprite); //地球光圈
 earth.add(createSphereMesh(EarthRadius)); //球体Mesh插入earthGroup中
 // R * 1.001比地球R稍大，以免深度冲突
-// earth.add(countryLine(EarthRadius* 1.001));//国家边界集合插入earthGroup中
+earth.add(countryLine(EarthRadius* 1.001));//国家边界集合插入earthGroup中
 
 export { earth };

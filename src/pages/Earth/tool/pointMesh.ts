@@ -5,7 +5,6 @@ import { getxyzPosition } from './tool'
 import taggingImg from "@/assets/Earth/标注.png" // 标注
 
 // 矩形平面网格模型设置背景透明的png贴图
-// var geometry = new THREE.PlaneBufferGeometry(1, 1); //默认在XOY平面上
 const geometry = new THREE.PlaneGeometry(1, 1); //默认在XOY平面上
 const textureLoader = new THREE.TextureLoader(); // TextureLoader创建一个纹理加载器对象
 const texture = textureLoader.load(taggingImg);

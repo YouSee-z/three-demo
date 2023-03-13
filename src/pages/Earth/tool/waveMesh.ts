@@ -1,6 +1,5 @@
 // 引入three.js
 import * as THREE from 'three';
-// 引入getxyzPosition,经纬度转球面坐标
 import { getxyzPosition } from './tool'
 import  apertureImg from "@/assets/Earth/标注光圈.png"
 // 标注光圈
@@ -31,7 +30,8 @@ function createWaveMesh(R: number, lon: number, lat: number) {
   // 经纬度转球面坐标
   const coord = getxyzPosition(R*1.001, lon, lat)
   const size = R*0.16;//矩形平面Mesh的尺寸
-  mesh?.size = size;//自顶一个属性，表示mesh静态大小
+  // mesh.setSize(size)
+  mesh.size = size;//自顶一个属性，表示mesh静态大小
   mesh.scale.set(size, size, size);//设置mesh大小
   mesh._s = Math.random()*1.0 + 1.0;//自定义属性._s表示mesh在原始大小基础上放大倍数  光圈在原来mesh.size基础上1~2倍之间变化
   // mesh.scale.set(mesh.size*mesh._s,mesh.size*mesh._s,mesh.size*mesh._s);

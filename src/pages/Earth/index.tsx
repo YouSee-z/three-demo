@@ -5,7 +5,7 @@ import { WebGLRenderer } from 'three';
 import { earthCamera } from './tool/camera';
 import backImg from "../../assets/Earth/back1.jpg"
 import { earth } from './tool/earth'//绘制地球
-import { flyArr,WaveMeshArr } from './tool/fly';
+import { flyArr,WaveMeshArr,ConeMesh ,flyArcGroup} from './tool/fly';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 // import {flyArcGroup} from "./tool/"
 // import { }
@@ -24,6 +24,7 @@ export default function Earth() {
     const scene = new THREE.Scene();  // 场景
     const textureLoader = new THREE.TextureLoader();  // 纹理
     scene.background = textureLoader.load(backImg);
+    earth.add(flyArcGroup);
     scene.add(earth); //添加地球
 
     // 平行光1
@@ -75,6 +76,10 @@ export default function Earth() {
           }
         })
       }
+      earth.rotateY(0.002); //地球绕y轴旋转动画
+      ConeMesh.rotateZ(-0.02); //棱锥自转
+      renderer.render(scene, camera); //执行渲染操作
+      // requestAnimationFrame(render); //请求再次执行渲染函数render，渲染下一帧
       window.requestAnimationFrame(earthRender)
     }
     earthRender() 

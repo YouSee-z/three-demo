@@ -31,5 +31,6 @@ earth.add(sprite); //地球光圈
 earth.add(createSphereMesh(EarthRadius)); //球体Mesh插入earthGroup中
 // R * 1.001比地球R稍大，以免深度冲突
 earth.add(countryLine(EarthRadius* 1.001));//国家边界集合插入earthGroup中
+console.log(11111111111111)
 
 export { earth };

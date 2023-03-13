@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // 引入getxyzPosition,经纬度转球面坐标
 import { getxyzPosition } from './tool';
 // import {JSON} from "../json/revise.json"
-const JSON = require('../json/revise.json');
+// const JSON = require('../json/revise.json');
 // pointArr：一组几何体顶点坐标
 function line(pointArr: any[] | Iterable<number>) {
   /**

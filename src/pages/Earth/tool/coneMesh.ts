@@ -1,8 +1,5 @@
 import * as THREE from 'three';
 import { getxyzPosition } from './tool';
-
-// import { lon2xyz } from '../math.js'
-
 // R:标注的球面半径   log，lat表示标注点的经纬度坐标
 
 function createConeMesh(R: number, lon: number, lat: number) {

@@ -1,31 +1,32 @@
 import * as THREE from 'three';
-import data from './data.js'
+import {MockData,EarthRadius} from './static'
+import 
 import { flyArc } from './arc.js'
 
-import { createPointMesh } from './pointMesh.js';
-import { createWaveMesh } from './WaveMesh.js';
-import { createConeMesh } from './ConeMesh.js';
-import config from '../config.js'
-var R = config.R;//地球半径
+import { createPointMesh } from './pointMesh';
+import { createWaveMesh } from './WaveMesh';
+import { createConeMesh } from './coneMesh';
+// import config from '../config.js'
+const R = EarthRadius;//地球半径
 
-var flyArcGroup = new THREE.Group();
+const flyArcGroup = new THREE.Group();
 // 通过轨迹线连接洛阳和世界其它城市的飞线
 //批量绘制轨迹线
-var flyArr = [];//所有飞线的集合，用来在渲染循环中设置飞线动画
-var WaveMeshArr = [];//所有波动光圈集合
-var startmesh = createPointMesh(R, data.start.E, data.start.N);//静态圆点平面
+const flyArr = [];//所有飞线的集合，用来在渲染循环中设置飞线动画
+const WaveMeshArr = [];//所有波动光圈集合
+const startmesh = createPointMesh(R, MockData.start.E, MockData.start.N);//静态圆点平面
 flyArcGroup.add(startmesh);
-var startWaveMesh = createWaveMesh(R*1.2, data.start.E, data.start.N);//波动光圈
+const startWaveMesh = createWaveMesh(R*1.2, MockData.start.E, MockData.start.N);//波动光圈
 flyArcGroup.add(startWaveMesh);
 WaveMeshArr.push(startWaveMesh);
-var ConeMesh = createConeMesh(R, data.start.E, data.start.N);//棱锥
+const ConeMesh = createConeMesh(R, MockData.start.E, MockData.start.N);//棱锥
 flyArcGroup.add(ConeMesh);
 
 
 
-data.endArr.forEach((coord) => {
+MockData.endArr.forEach((coord) => {
   /*调用函数flyArc绘制球面上任意两点之间飞线圆弧轨迹*/
-  var arcline = flyArc(data.start.E, data.start.N, coord.E, coord.N)
+  var arcline = flyArc(MockData.start.E, MockData.start.N, coord.E, coord.N)
   flyArcGroup.add(arcline); //飞线插入flyArcGroup中
   flyArr.push(arcline.flyLine);//获取飞线段
 

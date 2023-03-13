@@ -19,4 +19,4 @@ const sprite = new THREE.Sprite(spriteMaterial);
 sprite.scale.set(R * 3.0, R * 3.0, 1); //适当缩放精灵
 sprite.scale.set(R * 4.0, R * 4.0, 1); //光圈相比较地球偏大
 
-export default sprite;
+export { sprite };

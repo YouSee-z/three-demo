@@ -4,8 +4,8 @@ import {getxyzPosition} from "./tool"
 
 
 
-// log，lat表示标注点的经纬度坐标
-// R:标注的球面半径
+// R:标注的球面半径   log，lat表示标注点的经纬度坐标
+
 function createConeMesh(R: number, lon: number, lat: number) {
     const radius = R / 18;//圆锥半径  和地球半径建立尺寸关系
     const height = radius * 4;//棱锥高度
